@@ -1,0 +1,222 @@
+Skip to content
+ 
+Search…
+All gists
+Back to GitHub
+@arugonda123divya 
+@indushekhawat
+indushekhawat/Simple Linear Regression Assignment Problem statement _Salary_hike_ Build a prediction model for Salary_hike by R.ipynb
+Created 3 years ago • Report abuse
+Code
+Revisions
+1
+<script src="https://gist.github.com/indushekhawat/bf680552fbcd0008646f37dc1c8213a4.js"></script>
+Simple Linear Regression Assignment Problem statement__Salary_hike _ Build a prediction model for Salary_hike_by using R
+ 
+Simple Linear Regression Assignment Problem statement _Salary_hike_ Build a prediction model for Salary_hike by R.ipynb
+{
+  "cells": [
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "2) Salary_hike -> Build a prediction model for Salary_hike-R",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "Salary_hike -> Build a prediction model for Salary_hike\nSalary_hike <- read.csv(file.choose(), header = TRUE)\nsummary(Salary_hike)",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "##  YearsExperience      Salary      \n##  Min.   : 1.100   Min.   : 37731  \n##  1st Qu.: 3.200   1st Qu.: 56721  \n##  Median : 4.700   Median : 65237  \n##  Mean   : 5.313   Mean   : 76003  \n##  3rd Qu.: 7.700   3rd Qu.:100545  \n##  Max.   :10.500   Max.   :122391\nView(Salary_hike)",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "var(Salary_hike$YearsExperience)",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "## [1] 8.053609",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "sd(Salary_hike$YearsExperience)",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "## [1] 2.837888",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "# Variance and Standard deviation of Churn_out_rate column\nvar(Salary_hike$Salary)",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "## [1] 751550960",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "sd(Salary_hike$Salary)",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "## [1] 27414.43",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "Scatter plot\nplot(Salary_hike$Salary,Salary_hike$YearsExperience,main=\"Scatter Plot\", col=\"Dodgerblue4\", \n     col.main=\"Dodgerblue4\", col.lab=\"green\", xlab=\"Salary \", \n     ylab=\"YearsExperience\", pch=22)  # plot(x,y)",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "#Creating Linear Model for Salary hike\nSalary_hike_Model <- lm(Salary ~ YearsExperience, data = Salary_hike)\nsummary(Salary_hike_Model)\nplot(Salary_hike_Model)\npred <- predict(Salary_hike_Model,interval=\"predict\")\npred\npred <- as.data.frame(pred)\nView(pred)\ncor(pred$fit)\nplot(Salary_hike_Model)\n",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "metadata": {
+        "trusted": true
+      },
+      "cell_type": "code",
+      "source": "Call:\nlm(formula = Salary ~ YearsExperience, data = Salary_hike)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-7958.0 -4088.5  -459.9  3372.6 11448.0 \n\nCoefficients:\n                Estimate Std. Error t value Pr(>|t|)    \n(Intercept)      25792.2     2273.1   11.35 5.51e-12 ***\nYearsExperience   9450.0      378.8   24.95  < 2e-16 ***\n---\nSignif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1\n\nResidual standard error: 5788 on 28 degrees of freedom\nMultiple R-squared:  0.957,\tAdjusted R-squared:  0.9554 \nF-statistic: 622.5 on 1 and 28 DF,  p-value: < 2.2e-16\nHence the P-value is less than 0.05. So X varibale is significance and also Multiple R-Square value is 0.957.\nThat’s mean this model will predict the output 95.7% time correct.\n",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3",
+      "language": "python"
+    },
+    "language_info": {
+      "name": "python",
+      "version": "3.8.3",
+      "mimetype": "text/x-python",
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "pygments_lexer": "ipython3",
+      "nbconvert_exporter": "python",
+      "file_extension": ".py"
+    },
+    "varInspector": {
+      "window_display": false,
+      "cols": {
+        "lenName": 16,
+        "lenType": 16,
+        "lenVar": 40
+      },
+      "kernels_config": {
+        "python": {
+          "library": "var_list.py",
+          "delete_cmd_prefix": "del ",
+          "delete_cmd_postfix": "",
+          "varRefreshCmd": "print(var_dic_list())"
+        },
+        "r": {
+          "library": "var_list.r",
+          "delete_cmd_prefix": "rm(",
+          "delete_cmd_postfix": ") ",
+          "varRefreshCmd": "cat(var_dic_list()) "
+        }
+      },
+      "types_to_exclude": [
+        "module",
+        "function",
+        "builtin_function_or_method",
+        "instance",
+        "_Feature"
+      ]
+    },
+    "gist": {
+      "id": "",
+      "data": {
+        "description": "Simple Linear Regression Assignment Problem statement__Salary_hike _ Build a prediction model for Salary_hike_by using R",
+        "public": true
+      }
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 4
+}
+@arugonda123divya
+ 
+Leave a comment
+No file chosen
+Attach files by dragging & dropping, selecting or pasting them.
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
